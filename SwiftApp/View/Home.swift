@@ -13,13 +13,27 @@ struct Home: View {
     // Detail View Properties
     @State var currentCard: Card?
     @State var showDetailCard: Bool = false
+    @Namespace var animation
     
     var body: some View {
         VStack(spacing: 0){
-            Text("Animals")
+            Text("Animals+")
                 .font(.largeTitle)
                 .fontWeight(.semibold)
                 .frame(maxWidth: .infinity,alignment: expandCards ? .leading : .center)
+                .foregroundColor(Color.clear)
+                    .background(
+                        LinearGradient(
+                            gradient: Gradient(colors: [Color.purple, Color.black]),
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    .mask(Text("Animals+")
+                        .font(.largeTitle)
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity,alignment: expandCards ? .leading : .center)
+                    )
                 .overlay(alignment: .trailing) {
                     
                     //Close button
@@ -48,14 +62,21 @@ struct Home: View {
                     //Card's
                     
                     ForEach(cards) {card in
-                        CardView(card: card)
-                            .onTapGesture {
-                                withAnimation(
-                                    .easeInOut(duration: 0.35)) {
-                                        currentCard = card
-                                        showDetailCard = true
-                                    }
+                        Group{
+                            if currentCard?.id == card.id && showDetailCard{
+                               CardView(card: card)
+                                    .opacity(0)
+                            } else {
+                                CardView(card: card)
+                                    .matchedGeometryEffect(id: card.id, in: animation)
                             }
+                        }
+                        .onTapGesture {
+                            withAnimation(.easeInOut(duration: 0.35)) {
+                                currentCard = card
+                                showDetailCard = true
+                            }
+                        }
                     }
                 }
                 .overlay{
@@ -95,7 +116,7 @@ struct Home: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .overlay {
             if let currentCard = currentCard, showDetailCard {
-                DetaiView(currentCard: currentCard, showDetaiCard: $showDetailCard)
+                DetaiView(currentCard: currentCard, showDetaiCard: $showDetailCard, animation: animation)
             }
         }
     }
@@ -110,6 +131,8 @@ struct Home: View {
             let offset = CGFloat(getIndex(Card: card)*(expandCards ? 10 : 70))
             
             ZStack(alignment: .topLeading) {
+                
+                
                 Image(card.cardImage)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -120,10 +143,7 @@ struct Home: View {
                         .fontWeight(.bold)
                         .font(.title)
         
-                    
-                    Text(card.cardNumber)
-                        .font(.callout)
-                        .fontWeight(.bold)
+                  
                 }
                 
                 .padding()
@@ -163,13 +183,162 @@ struct Home_Previews: PreviewProvider {
 struct DetaiView: View {
     var currentCard: Card
     @Binding var showDetaiCard: Bool
+    //Matched geometry effect
+    var animation: Namespace.ID
+    
+    //Delaying extra details view
+    
+    @State var showExpenseView: Bool = false
     var body: some View{
         
         VStack{
            CardView()
+                .matchedGeometryEffect(id: currentCard.id, in: animation)
                 .frame(height: 200)
+                .onTapGesture {
+                    //Cloding detail view
+                    withAnimation(.easeInOut) {
+                        showExpenseView = false
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        withAnimation(.easeInOut(duration: 0.35)) {
+                            showDetaiCard = false
+                        }
+                    }
+                   
+                }
+                .zIndex(10)
+            
+         
+            VStack{
+                
+                Spacer()
+                HStack{
+                    Spacer()
+                    GeometryReader{proxy in
+                        
+                        let height = proxy.size.height + 50
+                        
+                        ScrollView(.vertical, showsIndicators: false) {
+                            VStack(spacing: 20) {
+                                Text("Kingdom")
+                                    .font(.title3)
+                                    .fontWeight(.light)
+                                    .padding(.top, 15)
+                                
+                            }
+                            
+                       
+                        }
+                        .frame(maxWidth: 180, maxHeight: 150)
+                        .background(
+                            Color.white
+                                .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                                .ignoresSafeArea()
+                        )
+                        .offset(y: showExpenseView ? 0 : height)
+                    }
+                    .padding(.trailing, 10)
+                    
+                    Spacer()
+                    GeometryReader{proxy in
+                        
+                        let height = proxy.size.height + 50
+                        
+                        ScrollView(.vertical, showsIndicators: false) {
+                            VStack(spacing: 20) {
+                                Text("Height")
+                                    .font(.title3)
+                                    .fontWeight(.light)
+                                    .padding(.top, -2)
+                            }
+                            
+                            .padding()
+                        }
+                        .frame(maxWidth: 178, maxHeight: 150)
+                        .background(
+                            Color.white
+                                .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                                .ignoresSafeArea()
+                        )
+                        .offset(y: showExpenseView ? 0 : height)
+                    }
+                    
+                    Spacer()
+                }
+                .padding(.vertical, -20)
+                
+                Spacer()
+                GeometryReader{proxy in
+                    
+                    let height = proxy.size.height + 20
+                    let width = proxy.size.width / 2
+                    let offset = (proxy.size.width - 340) / 2
+                    
+                    ScrollView(.vertical, showsIndicators: false) {
+                        VStack(spacing: 20) {
+                            Text("Location")
+                                .font(.title3)
+                                .fontWeight(.light)
+                                .padding(.top, 10)
+                        }
+                        
+                   
+                    }
+                    .frame(maxWidth: 340, maxHeight: 170)
+                    .background(
+                        Color.white
+                            .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                            .ignoresSafeArea()
+                    )
+                    .offset(x: offset, y: showExpenseView ? 0 : height)
+                }
+                .padding(.vertical, -30)
+                
+                Spacer()
+                GeometryReader{proxy in
+                    
+                    let height = proxy.size.height + 20
+                    let width = proxy.size.width / 2
+                    let offset = (proxy.size.width - 340) / 2
+                    
+                    ScrollView(.vertical, showsIndicators: false) {
+                        VStack(spacing: 20) {
+                            Text("Location")
+                                .font(.title3)
+                                .fontWeight(.light)
+                                .padding(.top, 10)
+                        }
+                        
+                   
+                    }
+                    .frame(maxWidth: 340, maxHeight: 170)
+                    .background(
+                        Color.white
+                            .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                            .ignoresSafeArea()
+                    )
+                    .offset(x: offset, y: showExpenseView ? 0 : height)
+                }
+                .padding(.vertical, -20)
+            }
+            
+           
+            
+            
+            
+            
+            .padding([.horizontal, .top])
+            .zIndex(-10)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .background(Color("BG").ignoresSafeArea())
+        .onAppear() {
+            withAnimation(.easeInOut.delay(0.1)) {
+                showExpenseView = true;
+            }
+        }
     }
     
     @ViewBuilder
@@ -177,7 +346,8 @@ struct DetaiView: View {
         ZStack(alignment: .topLeading) {
             Image(currentCard.cardImage)
                 .resizable()
-                .aspectRatio(contentMode: .fill)
+                .aspectRatio(contentMode: .fit)
+                .cornerRadius(20)
            
           
             VStack(alignment: .leading, spacing: 40) {
@@ -186,14 +356,14 @@ struct DetaiView: View {
                     .font(.title)
     
                 
-                Text(currentCard.cardNumber)
-                    .font(.callout)
-                    .fontWeight(.bold)
+                
             }
             
             .padding()
-            .padding(.bottom,10)
+            .padding(.bottom,5)
             .foregroundColor(.black)
+           
         }
+      
     }
 }
