@@ -6,9 +6,18 @@
 //
 
 import SwiftUI
+import ARKit
+import SceneKit
+import RealityKit
 
 struct Home: View {
+    
+    init() {
+            // Ensure light mode
+            UITraitCollection.current = UITraitCollection(traitsFrom: [UITraitCollection(displayScale: 2), UITraitCollection(userInterfaceStyle: .light)])
+        }
     @State var expandCards: Bool = false
+    @State private var isPresentingARView = false
     
     // Detail View Properties
     @State var currentCard: Card?
@@ -36,7 +45,7 @@ struct Home: View {
                     )
                 .overlay(alignment: .trailing) {
                     
-                    //Close button
+//                    Close button
                     Button {
                         //closing it
                         withAnimation(
@@ -96,13 +105,22 @@ struct Home: View {
             //add button
             //Close button
             Button {
+                isPresentingARView = true;
             } label: {
-                Image(systemName: "plus")
-                    .font(.title)
+                Text("Explore")
+                    .font(.title2)
+                    .fontWeight(.bold)
                     .foregroundColor(.white)
                     .padding(20)
-                    .background(.blue, in: Circle())
+                    .background(
+                                RoundedRectangle(cornerRadius: 40) // Adjust cornerRadius as needed
+                                    .fill(Color.blue)
+                            )
             }
+            .sheet(isPresented: $isPresentingARView) {
+                            ARViewContainer()
+                               
+                        }
             .rotationEffect(.init(degrees: expandCards ? 180 : 0))
             // To Avoid Warning 0.01
             .scaleEffect(expandCards ? 0.01 : 1)
@@ -366,4 +384,18 @@ struct DetaiView: View {
         }
       
     }
+      
 }
+
+struct ARViewContainer: UIViewControllerRepresentable {
+    
+    func makeUIViewController(context: Context) -> ARViewController {
+        let arVC = ARViewController()
+        return arVC
+    }
+    
+    func updateUIViewController(_ uiViewController: ARViewController, context: Context) {
+        // Update your ARKit scene if needed
+    }
+}
+

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		314D5FF32B797AB9004BE340 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314D5FF22B797AB9004BE340 /* ViewController.swift */; };
 		31B8C1E22B754FF100428612 /* SwiftAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8C1E12B754FF100428612 /* SwiftAppApp.swift */; };
 		31B8C1E42B754FF100428612 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8C1E32B754FF100428612 /* ContentView.swift */; };
 		31B8C1E62B754FF300428612 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31B8C1E52B754FF300428612 /* Assets.xcassets */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		314D5FED2B79641A004BE340 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		314D5FF22B797AB9004BE340 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		31B8C1DE2B754FF100428612 /* SwiftApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B8C1E12B754FF100428612 /* SwiftAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftAppApp.swift; sourceTree = "<group>"; };
 		31B8C1E32B754FF100428612 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,6 +101,7 @@
 		31B8C1E02B754FF100428612 /* SwiftApp */ = {
 			isa = PBXGroup;
 			children = (
+				314D5FED2B79641A004BE340 /* Info.plist */,
 				31B8C20E2B75513300428612 /* View */,
 				31B8C20B2B75505000428612 /* Model */,
 				31B8C1E12B754FF100428612 /* SwiftAppApp.swift */,
@@ -145,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				31B8C20F2B75513E00428612 /* Home.swift */,
+				314D5FF22B797AB9004BE340 /* ViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				314D5FF32B797AB9004BE340 /* ViewController.swift in Sources */,
 				31B8C1E42B754FF100428612 /* ContentView.swift in Sources */,
 				31B8C20D2B75506900428612 /* Card.swift in Sources */,
 				31B8C2102B75513E00428612 /* Home.swift in Sources */,
@@ -371,7 +377,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -428,7 +434,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -449,6 +455,8 @@
 				DEVELOPMENT_TEAM = E53M7V24RT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftApp/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires permission to use the camera";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -478,6 +486,8 @@
 				DEVELOPMENT_TEAM = E53M7V24RT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftApp/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires permission to use the camera";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
