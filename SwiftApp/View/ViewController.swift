@@ -6,6 +6,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     
     var dotNodes = [SCNNode]()
        var textNode = SCNNode()
+    var animalNode = SCNNode()
        var meterValue: Double?
        var sceneView = ARSCNView()
        
@@ -72,16 +73,34 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
             meterValue = Double(abs(distance))
          let heightMeter = Measurement(value: meterValue ?? 0, unit: UnitLength.meters)
          let heightCentimeter = heightMeter.converted(to: UnitLength.centimeters)
+         let heightCent = Int(heightCentimeter.value)
             
             let value = "\(heightCentimeter)"
             let finalMeasurement = String(value.prefix(6))
-            
+         addAnimal(height: heightCent, atPosition: start.position)
             updateText(text: finalMeasurement, atPosition: end.position)
+       
             
         }
        
      
+    func addAnimal(height: Int, atPosition position: SCNVector3) {
+        
+        animalNode.removeFromParentNode()
+        guard let animalScene = SCNScene(named: "deer.usdz") else {
+            fatalError("no deer")
+        }
+       
+         animalNode = animalScene.rootNode.clone()
+        
+        animalNode.position = position
+        animalNode.scale = SCNVector3(x: 0.001, y: 0.001, z: 0.001)
+            
+            // Add the deer node to the scene's root node
+            sceneView.scene.rootNode.addChildNode(animalNode)
+     
     
+    }
      func updateText(text: String, atPosition position: SCNVector3) {
             textNode.removeFromParentNode()
             let textGeometry = SCNText(string: text, extrusionDepth: 1.0)
