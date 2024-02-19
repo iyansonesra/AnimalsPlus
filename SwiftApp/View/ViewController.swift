@@ -85,7 +85,25 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
        
      
     func addAnimal(height: Int, atPosition position: SCNVector3) {
-        
+        if(height < 2) {
+            //butterfy
+        } else if(height >= 2 && height < 20) {
+            //falcon
+        } else if(height >= 20 && height < 32) {
+            //panda
+        } else if(height >= 32 && height < 38) {
+            //wolf
+        } else if(height >= 38 && height < 45) {
+            //tiger
+        } else if(height >= 45 && height < 52) {
+            //penguin
+        } else if(height >= 52 && height < 65) {
+            //kangaroo
+        } else if(height >= 65 && height < 100) {
+            //ostritch
+        } else if(height >= 100) {
+            //elephant
+        }
         animalNode.removeFromParentNode()
         guard let animalScene = SCNScene(named: "deer.usdz") else {
             fatalError("no deer")
