@@ -17,8 +17,6 @@
 		31B8C1FF2B754FF400428612 /* SwiftAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8C1FE2B754FF400428612 /* SwiftAppUITestsLaunchTests.swift */; };
 		31B8C20D2B75506900428612 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8C20C2B75506900428612 /* Card.swift */; };
 		31B8C2102B75513E00428612 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8C20F2B75513E00428612 /* Home.swift */; };
-		31DC36312B7B984F009EC685 /* deer.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 31DC36302B7B984F009EC685 /* deer.usdz */; };
-		31DC36332B7B9A47009EC685 /* deer.scn in Resources */ = {isa = PBXBuildFile; fileRef = 31DC36322B7B9A47009EC685 /* deer.scn */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +51,6 @@
 		31B8C1FE2B754FF400428612 /* SwiftAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		31B8C20C2B75506900428612 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		31B8C20F2B75513E00428612 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		31DC36302B7B984F009EC685 /* deer.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = deer.usdz; path = ../../../../Downloads/deer.usdz; sourceTree = "<group>"; };
-		31DC36322B7B9A47009EC685 /* deer.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = deer.scn; path = ../../../../Downloads/deer.scn; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,8 +150,6 @@
 			children = (
 				31B8C20F2B75513E00428612 /* Home.swift */,
 				314D5FF22B797AB9004BE340 /* ViewController.swift */,
-				31DC36302B7B984F009EC685 /* deer.usdz */,
-				31DC36322B7B9A47009EC685 /* deer.scn */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -265,8 +259,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				31B8C1E92B754FF300428612 /* Preview Assets.xcassets in Resources */,
-				31DC36312B7B984F009EC685 /* deer.usdz in Resources */,
-				31DC36332B7B9A47009EC685 /* deer.scn in Resources */,
 				31B8C1E62B754FF300428612 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

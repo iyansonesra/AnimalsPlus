@@ -4,12 +4,10 @@
 //
 //  Created by Sonesra, Iyan M on 2/8/24.
 //
-
 import SwiftUI
 import ARKit
 import SceneKit
 import RealityKit
-
 struct Home: View {
     
     init() {
@@ -190,13 +188,11 @@ struct Home: View {
     
     //Mark: Hiding al
 }
-
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         Home()
     }
 }
-
 //Detail View
 struct DetaiView: View {
     var currentCard: Card
@@ -239,17 +235,25 @@ struct DetaiView: View {
                         let height = proxy.size.height + 50
                         
                         ScrollView(.vertical, showsIndicators: false) {
-                            VStack(spacing: 20) {
-                                Text("Kingdom")
-                                    .font(.title3)
+                            VStack(spacing:13) {
+                                Text("Class")
+                                    .font(.title2)
                                     .fontWeight(.light)
                                     .padding(.top, 15)
                                 
+                                Text(currentCard.cardClass)
+                                    .font(.title3)
+                                    .italic()
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.black)
+                                    .padding(.horizontal, 30)
+                                    .multilineTextAlignment(.center)
+                                
                             }
                             
-                       
+                            
                         }
-                        .frame(maxWidth: 180, maxHeight: 150)
+                        .frame(maxWidth: 180, maxHeight: 100)
                         .background(
                             Color.white
                                 .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
@@ -265,16 +269,25 @@ struct DetaiView: View {
                         let height = proxy.size.height + 50
                         
                         ScrollView(.vertical, showsIndicators: false) {
-                            VStack(spacing: 20) {
+                            VStack(spacing: 13) {
                                 Text("Height")
-                                    .font(.title3)
+                                    .font(.title2)
                                     .fontWeight(.light)
                                     .padding(.top, -2)
+                                
+                                Text(currentCard.cardHeight)
+                                    .font(.title3)
+                                    .italic()
+                                    .lineLimit(1)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.black)
+                                    .padding(.horizontal, 30)
+                                    .multilineTextAlignment(.center)
                             }
                             
                             .padding()
                         }
-                        .frame(maxWidth: 178, maxHeight: 150)
+                        .frame(maxWidth: 178, maxHeight: 100)
                         .background(
                             Color.white
                                 .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
@@ -300,6 +313,17 @@ struct DetaiView: View {
                                 .font(.title3)
                                 .fontWeight(.light)
                                 .padding(.top, 10)
+                       
+                            
+                            Text(currentCard.cardAbout)
+                                .font(.subheadline)
+                                .italic()
+                                .padding(.top, -12)
+                                .fontWeight(.light)
+                                .foregroundColor(.black)
+                                .padding(.horizontal, 30)
+                                .multilineTextAlignment(.center)
+                            
                         }
                         
                    
@@ -312,7 +336,7 @@ struct DetaiView: View {
                     )
                     .offset(x: offset, y: showExpenseView ? 0 : height)
                 }
-                .padding(.vertical, -30)
+                .padding(.vertical, -85)
                 
                 Spacer()
                 GeometryReader{proxy in
@@ -323,15 +347,24 @@ struct DetaiView: View {
                     
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack(spacing: 20) {
-                            Text("Location")
+                            Text("Fun Facts")
                                 .font(.title3)
                                 .fontWeight(.light)
                                 .padding(.top, 10)
+                            
+                            Text(currentCard.cardFun)
+                                .font(.subheadline)
+                                .italic()
+                                .padding(.top, -12)
+                                .fontWeight(.light)
+                                .foregroundColor(.black)
+                                .padding(.horizontal, 30)
+                                .multilineTextAlignment(.leading)
                         }
                         
                    
                     }
-                    .frame(maxWidth: 340, maxHeight: 170)
+                    .frame(maxWidth: 340, maxHeight: 230)
                     .background(
                         Color.white
                             .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
@@ -339,7 +372,7 @@ struct DetaiView: View {
                     )
                     .offset(x: offset, y: showExpenseView ? 0 : height)
                 }
-                .padding(.vertical, -20)
+                .padding(.vertical, -80)
             }
             
            
@@ -386,7 +419,6 @@ struct DetaiView: View {
     }
       
 }
-
 struct ARViewContainer: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> ARViewController {
