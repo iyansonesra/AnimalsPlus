@@ -17,6 +17,7 @@
 		31B8C1FF2B754FF400428612 /* SwiftAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8C1FE2B754FF400428612 /* SwiftAppUITestsLaunchTests.swift */; };
 		31B8C20D2B75506900428612 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8C20C2B75506900428612 /* Card.swift */; };
 		31B8C2102B75513E00428612 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8C20F2B75513E00428612 /* Home.swift */; };
+		31FA88B02B832DAB00904537 /* elephant.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 31FA88AF2B832DAB00904537 /* elephant.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		31B8C1FE2B754FF400428612 /* SwiftAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		31B8C20C2B75506900428612 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		31B8C20F2B75513E00428612 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		31FA88AF2B832DAB00904537 /* elephant.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = elephant.usdz; path = ../../../../../Downloads/elephant.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 			children = (
 				31B8C20F2B75513E00428612 /* Home.swift */,
 				314D5FF22B797AB9004BE340 /* ViewController.swift */,
+				31FA88AF2B832DAB00904537 /* elephant.usdz */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			files = (
 				31B8C1E92B754FF300428612 /* Preview Assets.xcassets in Resources */,
 				31B8C1E62B754FF300428612 /* Assets.xcassets in Resources */,
+				31FA88B02B832DAB00904537 /* elephant.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
