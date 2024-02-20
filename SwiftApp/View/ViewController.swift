@@ -105,14 +105,14 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
             //elephant
         }
         animalNode.removeFromParentNode()
-        guard let animalScene = SCNScene(named: "deer.usdz") else {
+        guard let animalScene = SCNScene(named: "penguin.usdz") else {
             fatalError("no deer")
         }
        
          animalNode = animalScene.rootNode.clone()
         
         animalNode.position = position
-        animalNode.scale = SCNVector3(x: 0.001, y: 0.001, z: 0.001)
+        animalNode.scale = SCNVector3(x: 0.01, y: 0.01, z: 0.01)
             
             // Add the deer node to the scene's root node
             sceneView.scene.rootNode.addChildNode(animalNode)
