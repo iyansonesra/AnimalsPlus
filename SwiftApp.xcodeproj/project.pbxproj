@@ -16,6 +16,7 @@
 		313E61342B85C80400492AD1 /* butterfly.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 313E61332B85C80400492AD1 /* butterfly.usdz */; };
 		314D5FF32B797AB9004BE340 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314D5FF22B797AB9004BE340 /* ViewController.swift */; };
 		31A901082B8733440077B47A /* penguin.scn in Resources */ = {isa = PBXBuildFile; fileRef = 31A901072B8733440077B47A /* penguin.scn */; };
+		31B37E6F2B87FC7E001025D4 /* monkey.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 31B37E6E2B87FC7E001025D4 /* monkey.usdz */; };
 		31B8C1E22B754FF100428612 /* SwiftAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8C1E12B754FF100428612 /* SwiftAppApp.swift */; };
 		31B8C1E42B754FF100428612 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8C1E32B754FF100428612 /* ContentView.swift */; };
 		31B8C1E62B754FF300428612 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31B8C1E52B754FF300428612 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		314D5FED2B79641A004BE340 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		314D5FF22B797AB9004BE340 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		31A901072B8733440077B47A /* penguin.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = penguin.scn; sourceTree = "<group>"; };
+		31B37E6E2B87FC7E001025D4 /* monkey.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = monkey.usdz; sourceTree = "<group>"; };
 		31B8C1DE2B754FF100428612 /* SwiftApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B8C1E12B754FF100428612 /* SwiftAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftAppApp.swift; sourceTree = "<group>"; };
 		31B8C1E32B754FF100428612 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -166,12 +168,13 @@
 		31B8C20E2B75513300428612 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				31B8C20F2B75513E00428612 /* Home.swift */,
 				314D5FF22B797AB9004BE340 /* ViewController.swift */,
+				31B8C20F2B75513E00428612 /* Home.swift */,
 				31FA88B72B8330C200904537 /* elephant.usdz */,
 				310D0DBF2B8537030095050D /* penguin.usdz */,
 				31A901072B8733440077B47A /* penguin.scn */,
 				313E611F2B85B84800492AD1 /* kangaroo.usdz */,
+				31B37E6E2B87FC7E001025D4 /* monkey.usdz */,
 				313E61232B85B89A00492AD1 /* wolf.usdz */,
 				313E61252B85B8CD00492AD1 /* panda.usdz */,
 				313E61312B85C01F00492AD1 /* ostrich.scn */,
@@ -291,6 +294,7 @@
 				313E61342B85C80400492AD1 /* butterfly.usdz in Resources */,
 				31A901082B8733440077B47A /* penguin.scn in Resources */,
 				313E61202B85B84800492AD1 /* kangaroo.usdz in Resources */,
+				31B37E6F2B87FC7E001025D4 /* monkey.usdz in Resources */,
 				31B8C1E62B754FF300428612 /* Assets.xcassets in Resources */,
 				310D0DC02B8537030095050D /* penguin.usdz in Resources */,
 				313E61322B85C01F00492AD1 /* ostrich.scn in Resources */,

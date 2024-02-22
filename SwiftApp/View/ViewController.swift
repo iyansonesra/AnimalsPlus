@@ -118,7 +118,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         return degrees * (M_PI / 180);
       }
     func addAnimal(height: Int, atPosition position: SCNVector3) {
-        if(height < 2) {
+        if(height < 5) {
             animalNode.removeFromParentNode()
             guard let animalScene = SCNScene(named: "butterfly.usdz") else {
                 fatalError("no deer")
@@ -133,9 +133,21 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
                 sceneView.scene.rootNode.addChildNode(animalNode)
             updateText(text: "Butterfly (1/8\")", atPosition: position, scal: 0.002, zOff: 0.1)
             
-        } else if(height >= 2 && height < 20) {
-            //falcon
-        } else if(height >= 20 && height < 32) {
+        } else if(height >= 5 && height < 22) {
+            animalNode.removeFromParentNode()
+            guard let animalScene = SCNScene(named: "monkey.usdz") else {
+                fatalError("no deer")
+            }
+           
+             animalNode = animalScene.rootNode.clone()
+            
+            animalNode.position = position
+            animalNode.scale = SCNVector3(x: 0.0045, y: 0.0045, z: 0.0045)
+                
+                // Add the deer node to the scene's root node
+            updateText(text: "Spider Monkey (21\")", atPosition: position, scal: 0.007, zOff: 0.5)
+                sceneView.scene.rootNode.addChildNode(animalNode)
+        } else if(height >= 22 && height < 32) {
             animalNode.removeFromParentNode()
             guard let animalScene = SCNScene(named: "panda.usdz") else {
                 fatalError("no deer")
