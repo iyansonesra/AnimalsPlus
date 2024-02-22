@@ -111,12 +111,12 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
             let value = "\(heightCentimeter)"
             let finalMeasurement = String(value.prefix(6))
          addAnimal(height: heightCent, atPosition: start.position)
-            
-       
-            
         }
        
-     
+    public func degToRadians(degrees:Double) -> Double
+     {
+        return degrees * (M_PI / 180);
+      }
     func addAnimal(height: Int, atPosition position: SCNVector3) {
         if(height < 2) {
             animalNode.removeFromParentNode()
@@ -128,10 +128,11 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
             
             animalNode.position = position
             animalNode.scale = SCNVector3(x: 0.0005, y: 0.0005, z: 0.0005)
-                
+            animalNode.eulerAngles = SCNVector3Make(0,Float(degToRadians(degrees:180 )),0)
                 // Add the deer node to the scene's root node
                 sceneView.scene.rootNode.addChildNode(animalNode)
             updateText(text: "Butterfly (1/8\")", atPosition: position, scal: 0.002, zOff: 0.1)
+            
         } else if(height >= 2 && height < 20) {
             //falcon
         } else if(height >= 20 && height < 32) {
